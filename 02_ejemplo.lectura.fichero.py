@@ -12,3 +12,5 @@ with open("dias.txt","r") as f:
     while linea!="":
      print(linea)
      linea=f.readline()
+with open("dias.txt","r") as f: #copiamos esto y lo pegamos. 
+    print(f.readlines()) #Añadimos el print con readlines. 
