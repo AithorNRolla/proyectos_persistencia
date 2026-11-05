@@ -27,6 +27,8 @@ def cargar_notas_del_fichero():
             return[float(linea.strip())for linea in lineas]
     except FileNotFoundError:
         return[] 
+#programa principal.
+#intento abrir el fichero como lectura, si no existe lo creamos. 
         
     
 opcion=0
