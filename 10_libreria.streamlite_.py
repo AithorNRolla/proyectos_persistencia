@@ -17,6 +17,12 @@ Despues de ejecutar cualquiera de las anteriores opciones, se muestra de nuevo e
 Asi hasta que elija la opcion 5 que sale del programa
 """ 
 import streamlit as st
+if "libros" not in st.session_state:
+    libros=[]
+    st.session_state=libros
+else:
+    libros=st.session_state.libros 
+#añadido lo de arriba para hacer otra función. 
 tab_nuevo,tab_todos,tab_buscar,tab_precio=st.tabs(["Nuevo libro","Mostrar todos","Búsqueda por título","Libros precio máximo"])
 
 #Primero vamos a crear la variable tocha: esto nos permitirá almacenar la información. 
