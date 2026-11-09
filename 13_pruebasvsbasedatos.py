@@ -8,3 +8,4 @@ cursordb=db.cursor(dictionary=True)
 cursordb.execute("select * from alumnos")
 for row in cursordb:
     print(row)
+db.close
