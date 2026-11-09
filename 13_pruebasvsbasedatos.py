@@ -4,4 +4,7 @@ db=con.connect(host="localhost",
                password="root",
                port=3306,
                database="universidad")
-print("¡Conexión realizada!")
+cursordb=db.cursor(dictionary=True)
+cursordb.execute("select * from alumnos")
+for row in cursordb:
+    print(row)
