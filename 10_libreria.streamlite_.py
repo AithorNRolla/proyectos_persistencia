@@ -58,7 +58,7 @@ with tab_tienda:
     col_tienda.write("**Nombre tienda**")
     col_direccion.write("**Dirección tienda**")
     col_imagen.write("**Foto**")
-    tiendas=[{"nombre":"tienda 1","direccion":"dir1","foto":"tienda.jpg"}, #Si modifico la segunda columna se rompe. 
+    tiendas=[{"nombre":"Cafetería","direccion":"Comfy-Lofi","foto":"tienda.jpg"}, #Cuidado, si modifico la referencia, se rompe. "foto":
              {"nombre":"tienda 2","direccion":"dir2","foto":"tienda.jpg"},
              {"nombre":"tienda 3","direccion":"dir3","foto":"tienda.jpg"}]
     for tienda in tiendas:
