@@ -34,7 +34,7 @@ def crear_paises(paises): #[Meteremos los paises]
 def devolver_continentes():
     sql="select * from continentes"
     db=crear_conexion()
-    cursor=db.cursor()
+    cursor=db.cursor(dictionary=True)
     cursor.execute(sql)
     resultado=cursor.fetchall()
     db.close()
