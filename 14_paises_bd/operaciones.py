@@ -22,6 +22,16 @@ def crear_continentes(continentes): #["Asia","Americas",...]
         
     db.commit()
     db.close()
+#esto ya es aporte del profesor ----------------------
+def devolver_continentes():
+    sql="select * from continentes"
+    db=crear_conexion()
+    cursor=db.cursor(dictionary=True)
+    cursor.execute(sql)
+    resultado=cursor.fetchall()
+    db.close()
+    return resultado
+#hasta aquí acaba el aporte del profesor. ------------
 def crear_paises(paises): #[Meteremos los paises]
     db=crear_conexion()
     cursor=db.cursor()
@@ -30,9 +40,18 @@ def crear_paises(paises): #[Meteremos los paises]
         cursor.execute(sql_insert,(pais,poblacion,bandera))
     db.commit()
     db.close()    
-#esto ya es aporte del profesor
-def devolver_continentes():
-    sql="select * from continentes"
+#Este paises_por_continente también es del profesor.   
+def paises_por_continente(id_continente):
+    sql="select * from paises where idContinente=%s"
+    db=crear_conexion()
+    cursor=db.cursor(dictionary=True)
+    cursor.execute(sql)
+    resultado=cursor.fetchall()
+    db.close()
+    return resultado 
+
+def devolver_paises():
+    sql="select * from paises"
     db=crear_conexion()
     cursor=db.cursor(dictionary=True)
     cursor.execute(sql)

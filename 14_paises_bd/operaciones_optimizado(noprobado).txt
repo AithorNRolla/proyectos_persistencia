@@ -1,0 +1,46 @@
+import mysql.connector as con 
+
+def crear_conexion():
+    return con.connect(
+        host="localhost",
+        user="root",
+        password="root",
+        port=3306,
+        database="mundo"
+    )
+    
+def borrar_tablas():
+    # Usando 'with', Python cierra la conexión solo al salir del bloque
+    with crear_conexion() as db:
+        with db.cursor() as cursor:
+            cursor.execute("delete from paises")       # CORREGIDO: Borramos primero el hijo
+            cursor.execute("delete from continentes")  # Luego el padre
+            db.commit()
+
+def crear_continentes(continentes): 
+    with crear_conexion() as db:
+        with db.cursor() as cursor:
+            sql_insert = "insert into continentes(continente) values(%s)"
+            for continente in continentes:
+                cursor.execute(sql_insert, (continente,))
+            db.commit()
+
+def crear_paises(paises): 
+    with crear_conexion() as db:
+        with db.cursor() as cursor:
+            sql_insert = "insert into paises(pais,poblacion,bandera) values(%s,%s,%s)"
+            for pais, poblacion, bandera in paises:
+                cursor.execute(sql_insert, (pais, poblacion, bandera))
+            db.commit()    
+
+def devolver_continentes():
+    with crear_conexion() as db:
+        with db.cursor(dictionary=True) as cursor:
+            cursor.execute("select * from continentes")
+            return cursor.fetchall() # Se cierra solo gracias al 'with'
+
+def devolver_paises():
+    with crear_conexion() as db:
+        with db.cursor(dictionary=True) as cursor:
+            cursor.execute("select * from paises")
+            return cursor.fetchall()
