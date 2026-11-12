@@ -45,7 +45,7 @@ else: #cuidado con tanto espacio por que un ligero cambio puede hacer destrozos.
 
 st.divider()
 st.header("2. Filtrar empleados")
-
+#Aquí podemos poner otra imagen por los JAJAS
 opcion=st.radio("Filtrar por:", ["Departamento", "Rango salarial"])
 if opcion=="Departamento":
     lista_deptos=col_empresa.distinct("departamento")
@@ -71,3 +71,4 @@ elif opcion=="Rango salarial":
                 cursor_salario = col_empresa.find(filtro_salario)
                 lista_empleados = list(cursor_salario)
                 st.dataframe(lista_empleados)
+st.image("https://e01-phantom-elmundo.uecdn.es/6325c1e69d0fbc008e944ef214171165/f/webp/assets/multimedia/imagenes/2019/01/28/15486725361120.jpg",width=500)
