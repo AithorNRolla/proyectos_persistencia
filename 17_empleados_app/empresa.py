@@ -23,8 +23,8 @@ for emp in empleados_deptos:
 print("Empleados por salario")
 filtro_salario={
     "salario":{
-        "$gte":1500,
-        "$lte":2500
+        "$gte":min,
+        "$lte":max
     }
 }
 
@@ -33,3 +33,23 @@ for emp in empleados_salario:
     print(emp)
 serv.close()
 
+
+
+#Aquí abajo es del profeso (no me funciona por que es diferene)
+"""
+import pymongo as py
+def crear_conexion():
+    url="mongodb://localhost:27017"
+    return py.MongoClient(url)
+
+def nuevo_empleado(empleado,edad,salario,departamento):
+    serv=crear_conexion()
+    col_empleados=serv.empresa.empleados
+    col_empleados.insert_one({"empleado":empleado,"edad":edad,"salario":salario,"departamento":departamento})
+    serv.close()
+
+def departamentos():
+    serv=crear_conexion()
+    col_empleados=serv.empresa.empleados
+    return list(set(map(lambda e:e["departamento"],col_empleados.find()))) 
+"""
