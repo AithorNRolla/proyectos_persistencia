@@ -16,6 +16,8 @@ serv=pm.MongoClient(url)
 col_empresa=serv.empresa.empleados
 
 st.title("Panel de Gestión de Empleados")
+#Añado imagen aunque no está entro del ejercicio. Como tampoco el botón. 
+st.image("https://www.nuevatribuna.es/asset/thumbnail,992,558,center,center/media/nuevatribuna/images/2017/01/11/2017011111274767744.jpg",width=698) 
 st.header("1. Alta de nuevo empleado")
 
 #Probamos el paso 4, puede que de error. 
