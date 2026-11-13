@@ -28,4 +28,4 @@ resultado = df[df["price"] <= presupuesto].sort_values(by="price", ascending=Fal
 print("Casas disponibles (de mayor a menor)")
 print(resultado)
 print(f"Total de casas encontradas: {len(resultado)}")
-"""
+""" 
