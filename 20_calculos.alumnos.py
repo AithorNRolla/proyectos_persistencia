@@ -2,9 +2,19 @@
 Calcular media, mostrar nota mas alta, total de alumnos. (a partir del archivo alumnos.json)
 
 """
+import json
 import pandas as pd
+#Solución sacada de la IA abajo: 
+"""
+# 1. Abrimos el archivo con Python puro (como ya sabías hacer)
+with open("alumnos.json", "r", encoding="utf-8") as archivo:
+    datos_lista = json.load(archivo)
 
-df=pd.read_json("alumnos.json", encoding="utf-8")
+# 2. Aquí es donde entra pd.DataFrame(): convierte tu lista en tabla de Pandas
+df = pd.DataFrame(datos_lista)
+"""
+#Arriba está una forma de hacerlo, con Dataframe. 
+df=pd.read_json("alumnos.json", encoding="utf-8") 
 print("Tabla de Alumnos")
 print(df)
 print()
