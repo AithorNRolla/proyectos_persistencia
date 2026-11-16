@@ -5,11 +5,12 @@ import polars as pl
     2.- Más eficiente
     """
 datos = [ 
-    {"nombre": "Ana", "edad": 25, "salario": 25000}, 
-    {"nombre": "Luis", "edad": 32, "salario": 32000}, 
-    {"nombre": "Marta", "edad": 28, "salario": 28000}, 
-    {"nombre": "Pedro", "edad": 41, "salario": 41000} 
+    {"nombre": "Ana", "edad": 25, "salario": 25000,"departamento":"ventas"}, 
+    {"nombre": "Luis", "edad": 32, "salario": 32000,"departamento":"informática"}, 
+    {"nombre": "Marta", "edad": 28, "salario": 28000,"departamento":"informática"}, 
+    {"nombre": "Pedro", "edad": 41, "salario": 41000,"departamento":"ventas"} 
 ] 
+
 df = pl.DataFrame(datos) 
 print(df)
 #Acceso a filas y columnas
@@ -37,3 +38,10 @@ print("Edad más baja",df["edad"].min())
 resultado=df.select
 (pl.col("salario").mean().alias("salario medio"),pl.col("edad").mean().alias("media edad"))
 print(resultado) 
+print(df["departamento"].unique().to_list()) #muestra lista sin duplicados.
+
+#Agrupacion en un dataframe
+print( 
+df.group_by("departamento").agg(pl.col("salario").mean().alias("salario medio"),
+                                pl.col("nombre").count().alias("total_empleados"))
+)
