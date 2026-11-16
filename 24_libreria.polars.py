@@ -45,3 +45,10 @@ print(
 df.group_by("departamento").agg(pl.col("salario").mean().alias("salario medio"),
                                 pl.col("nombre").count().alias("total_empleados"))
 )
+
+#Recorrido de un dataframe
+for element in df.iter_rows(): #como si fuera una tupla.
+    print(element)
+for element in df.iter_rows(named=True): #como diccionario
+    print(element)
+    
