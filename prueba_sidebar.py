@@ -1,2 +1,4 @@
 import streamlit as st 
-st.sidebar()
+with st.sidebar:
+    st.write("Menú navegación")
+    st.text_input("Dato:")
