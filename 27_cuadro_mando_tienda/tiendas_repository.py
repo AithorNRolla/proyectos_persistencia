@@ -44,3 +44,18 @@ def media_facturacion_global():
         "Media facturación global":[round(media,2)]
     })
     return tabla_media
+def evolucion_mensual_tienda(tienda_buscada):
+    df_tienda=df.filter(pl.col("nombre_tienda") == tienda_buscada)
+    df_evolucion=df_tienda.select(["mes", "facturacion", "gastos_personal"])
+    return df_evolucion
+
+"""
+    Tenemos que hacer una app con un sidebar a la izquierda con dos desplegables (tienda y mes) VENTAS.CSV
+    Al seleccionar una tienda se ha de mostrar a la derecha:
+    - Una tabla que contenga un total de facturacion/total de gastos de personal/mes con mayor facturacion
+    Al seleccionar un mes se ha de mostrar a la derecha:
+    - Una tabla con información de dicho mes de todas las tiendas (facturacion seguramente)
+    - Una tabla con los datos de ese mes (facturacion/total gastos de personal)
+    - Debajo de estas tablas una media de facturación de todas las tablas
+    - Una tabla con la tienda que tenga el mayor gasto de personal de dicho mes
+"""

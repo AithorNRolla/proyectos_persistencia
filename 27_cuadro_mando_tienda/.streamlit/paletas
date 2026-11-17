@@ -1,0 +1,40 @@
+[theme]
+primaryColor = "#2E8B57"
+backgroundColor = "#0F1C16"
+secondaryBackgroundColor = "#182B22"
+textColor = "#F0F7F4"
+font = "sans serif"
+
+[theme]
+primaryColor = "#38BDF8"
+backgroundColor = "#1E293B"
+secondaryBackgroundColor = "#0F172A"
+textColor = "#F8FAFC"
+font = "sans serif"
+
+[theme]
+primaryColor = "#60A5FA"
+backgroundColor = "#1E3A5F"
+secondaryBackgroundColor = "#152842"
+textColor = "#F0F4F8"
+font = "sans serif"
+
+[theme]
+primaryColor = "#E07A5F"
+backgroundColor = "#2B1D1A"
+secondaryBackgroundColor = "#1D1311"
+textColor = "#FAF3F0"
+font = "sans serif"
+#Version 2 del terracota ejecutivo
+[theme]
+primaryColor = "#E07A5F"
+backgroundColor = "#231715"
+secondaryBackgroundColor = "#170F0E"
+textColor = "#FDF8F5"
+font = "sans serif"
+
+Barras 1: ["#E07A5F", "#F2CC8F"] 
+Barra 2:  "#C084FC"
+
+Redondo original:  colors=["#E07A5F", "#F2CC8F", "#34D399", "#C084FC", "#38BDF8"]
+Redondo modificado: colors=["#E07A5F", "#F4A261", "#E9C46A", "#B892FF", "#81B29A"]
