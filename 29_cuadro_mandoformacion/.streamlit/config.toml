@@ -1,0 +1,7 @@
+[theme]
+base = "dark"
+primaryColor = "#A78BFA"              # Violeta suave luminoso
+backgroundColor = "#161122"           # Berenjena / índigo muy profundo
+secondaryBackgroundColor = "#231B36"  # Morado oscuro para la sidebar
+textColor = "#F3E8FF"                 # Blanco con un toque lavanda
+font = "sans serif"
