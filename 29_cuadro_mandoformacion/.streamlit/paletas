@@ -1,0 +1,66 @@
+[theme]
+primaryColor = "#2E8B57"
+backgroundColor = "#0F1C16"
+secondaryBackgroundColor = "#182B22"
+textColor = "#F0F7F4"
+font = "sans serif"
+
+[theme]
+primaryColor = "#38BDF8"
+backgroundColor = "#1E293B"
+secondaryBackgroundColor = "#0F172A"
+textColor = "#F8FAFC"
+font = "sans serif"
+
+[theme]
+primaryColor = "#60A5FA"
+backgroundColor = "#1E3A5F"
+secondaryBackgroundColor = "#152842"
+textColor = "#F0F4F8"
+font = "sans serif"
+
+[theme]
+primaryColor = "#E07A5F"
+backgroundColor = "#2B1D1A"
+secondaryBackgroundColor = "#1D1311"
+textColor = "#FAF3F0"
+font = "sans serif"
+#Version 2 del terracota ejecutivo
+[theme]
+primaryColor = "#E07A5F"
+backgroundColor = "#231715"
+secondaryBackgroundColor = "#170F0E"
+textColor = "#FDF8F5"
+font = "sans serif"
+
+Barras 1: ["#E07A5F", "#F2CC8F"] 
+Barra 2:  "#C084FC"
+
+Redondo original:  colors=["#E07A5F", "#F2CC8F", "#34D399", "#C084FC", "#38BDF8"]
+Redondo modificado: colors=["#E07A5F", "#F4A261", "#E9C46A", "#B892FF", "#81B29A"]
+
+[theme]
+base = "dark"
+primaryColor = "#38BDF8"              # Azul cielo eléctrico (botones, bordes, gráficos)
+backgroundColor = "#0F172A"           # Azul pizarra muy oscuro (fondo principal)
+secondaryBackgroundColor = "#1E293B"  # Azul pizarra medio (sidebar y tarjetas)
+textColor = "#F8FAFC"                 # Blanco hielo suave
+font = "sans serif"
+
+[theme]
+base = "dark"
+primaryColor = "#A78BFA"              # Violeta suave luminoso
+backgroundColor = "#161122"           # Berenjena / índigo muy profundo
+secondaryBackgroundColor = "#231B36"  # Morado oscuro para la sidebar
+textColor = "#F3E8FF"                 # Blanco con un toque lavanda
+font = "sans serif"
+
+COLOR_GRAFICO = "#FBBF24"  # Ámbar dorado (cámbialo aquí si quieres probar #FACC15)
+               "#FACC15"
+COLOR_TEXTO = "#F3E8FF"  # Blanco lavanda de tu config.toml
+
+"#F8D666" #dorado champagne/pastel
+"#D4A359" #oro viejo
+"#F4A28C" #coral/salmón pastel 
+"#6EE7B7" #turquesa/menta suave
+"#C4B5FD" #lila/orquídea suave
