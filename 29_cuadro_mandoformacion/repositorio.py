@@ -15,6 +15,37 @@ def cargar_datos():
         .cast(pl.Float64, strict=False)
     ).drop_nulls()
     df=df_notas.join(df_alumnos, on="id_alumno", how="left")
+
+    # Todo esto debe ir indentado (4 espacios) dentro de la función:
+    iconos = {
+        "Python": "🐍 Python",
+        "Java": "⚡ Java",
+        "Bases de datos": "🗄️ Bases de datos",
+    }
+    df = df.with_columns(
+        pl.col("curso").replace(iconos),
+        pl.col("asignatura").replace(iconos),
+    )
+    iconos_alumnos = {
+        "Ana": "♀️ Ana",
+        "Marta": "♀️ Marta",
+        "Laura": "♀️ Laura",
+        "Sofia": "♀️ Sofia",
+        "Elena": "♀️ Elena",
+        "Lucia": "♀️ Lucia",
+        "Luis": "♂️ Luis",
+        "Pedro": "♂️ Pedro",
+        "Carlos": "♂️ Carlos",
+        "David": "♂️ David",
+        "Pablo": "♂️ Pablo",
+        "Alberto": "♂️ Alberto",
+    }
+
+    df = df.with_columns(
+        pl.col("nombre").replace(iconos_alumnos),
+    )
+
+    
     return df
 #===== Todo este bloque de arriba es para que se cargue dónde está almacenado, sugerencia de la IA=====#
 #======================================================================================================#

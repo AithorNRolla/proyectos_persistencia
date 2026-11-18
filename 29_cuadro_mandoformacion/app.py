@@ -112,7 +112,7 @@ if df_filtrado.height>0:
             color="#6EE7B7",
         )
         ax.bar_label(
-            barras, padding=4, color="#F3E8FF", fontweight="bold") #sugerencia IA. 
+            barras, padding=3, color="#F3E8FF", fontweight="bold") #sugerencia IA. 
         ax.set_title("Nota Media por Asignatura", color="#F3E8FF")
         ax.set_ylabel("Nota Media")
         ax.set_ylim(0, 10.8)  # Escala fija de 0 a 10 para notas
