@@ -87,8 +87,9 @@ def calcular_kpis(df_filtrado):
     nota_max=df_filtrado["nota"].max()or 0.0
     nota_min=df_filtrado["nota"].min()or 0.0
     aprobados=df_filtrado.filter(pl.col("nota") >= 5).height
+    #porcentaje_aprobados=round((aprobados / df_filtrado.height) * 100, 1) #METEMOS EL PORCENTAJE!!!
     
-    return alumnos_eval,nota_media,nota_max,nota_min,aprobados
+    return alumnos_eval,nota_media,nota_max,nota_min,aprobados,#porcentaje_aprobados
 def tabla_por_asignatura(df_filtrado): #asigna las asignaturas y las enlaza con las notas. 
     # Las mismas 5 opciones:
     resumen_asig=df_filtrado.group_by("asignatura",maintain_order=True).agg(

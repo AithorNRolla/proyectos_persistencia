@@ -38,7 +38,7 @@ col1.metric("Alumnos evaluados",alumnos_eval)
 col2.metric("Nota media",nota_media)
 col3.metric("Nota máxima",nota_max)
 col4.metric("Nota mínima",nota_min)
-col5.metric("Aprobados",aprobados)
+col5.metric("Aprobados",aprobados) #("% Aprobados",f"{aprobados}%")
 
 st.divider()
 #=====Mandanga 0.2 "Cuadro de Estadística"=====#
