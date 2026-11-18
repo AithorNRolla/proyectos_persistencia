@@ -10,6 +10,10 @@ st.set_page_config(page_title="Panel Académico",layout="wide")
 df=repo.cargar_datos()
 cursos,asignaturas,grupos,evaluaciones=repo.obtener_filtros(df) #<---esto llama a repositorio.py
 #=====Ahora metemos el SIDEBAR=====#
+st.sidebar.markdown( 
+    "<h1 style='text-align: center; font-size: 65px; margin-bottom: 0px;'>🐇</h1>", #el conejo de cabecera!!!
+    unsafe_allow_html=True,
+)
 st.sidebar.header("Filtros Académicos 👨‍🎓")
 curso_buscado=st.sidebar.selectbox("Curso",cursos)
 asignatura_buscada=st.sidebar.selectbox("Asignatura",asignaturas)
