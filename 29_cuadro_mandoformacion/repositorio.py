@@ -79,7 +79,7 @@ def filtrar_datos(
 def calcular_kpis(df_filtrado):
     # Si el filtro deja 0 resultados, devolvemos ceros para evitar errores!!!!
     if df_filtrado.height==0:
-        return 0, 0.0, 0.0, 0.0, 0
+        return 0, 0.0, 0.0, 0.0, 0.0
 
     alumnos_eval=df_filtrado["id_alumno"].n_unique()
     media_cruda=df_filtrado["nota"].mean()
@@ -87,9 +87,9 @@ def calcular_kpis(df_filtrado):
     nota_max=df_filtrado["nota"].max()or 0.0
     nota_min=df_filtrado["nota"].min()or 0.0
     aprobados=df_filtrado.filter(pl.col("nota") >= 5).height
-    #porcentaje_aprobados=round((aprobados / df_filtrado.height) * 100, 1) #METEMOS EL PORCENTAJE!!!
+    porcentaje_aprobados=round((aprobados / df_filtrado.height) * 100, 1) #METEMOS EL PORCENTAJE!!!
     
-    return alumnos_eval,nota_media,nota_max,nota_min,aprobados,#porcentaje_aprobados
+    return alumnos_eval,nota_media,nota_max,nota_min,porcentaje_aprobados #aprobados,
 def tabla_por_asignatura(df_filtrado): #asigna las asignaturas y las enlaza con las notas. 
     # Las mismas 5 opciones:
     resumen_asig=df_filtrado.group_by("asignatura",maintain_order=True).agg(
@@ -99,6 +99,8 @@ def tabla_por_asignatura(df_filtrado): #asigna las asignaturas y las enlaza con 
             pl.col("nota").max().alias("nota_maxima"),
             pl.col("nota").min().alias("nota_minima"),
             (pl.col("nota") >= 5).sum().alias("aprobados"),
+            (((pl.col("nota")>=5).sum()/pl.col("nota").count()) * 100)
+            .round(1)
         ]
     )
     return resumen_asig
@@ -121,7 +123,13 @@ def tabla_por_alumno(df_filtrado):
 def datos_evolucion(df_filtrado): #lo último a añadir. 
     resumen_eval=(
         df_filtrado.group_by("evaluacion")
-        .agg(pl.col("nota").mean().round(2).alias("nota_media"))
+        .agg(pl.col("nota").mean().round(2).alias("nota_media"),
+             pl.col("nota")
+             .filter(pl.col("nota")<5)
+             .mean()
+             .round(2)
+             .alias("media_suspensos"),
+             )
         .sort("evaluacion")
     )
     return resumen_eval

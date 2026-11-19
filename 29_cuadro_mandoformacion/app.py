@@ -38,7 +38,7 @@ col1.metric("Alumnos evaluados",alumnos_eval)
 col2.metric("Nota media",nota_media)
 col3.metric("Nota máxima",nota_max)
 col4.metric("Nota mínima",nota_min)
-col5.metric("Aprobados",aprobados) #("% Aprobados",f"{aprobados}%")
+col5.metric("% Aprobados",f"{aprobados}%")#("Aprobados",aprobados) 
 
 st.divider()
 #=====Mandanga 0.2 "Cuadro de Estadística"=====#
@@ -61,6 +61,13 @@ if df_filtrado.height >0:
                             "nota_maxima": "Nota Máxima",
                             "nota_minima": "Nota Mínima",
                             "aprobados": "Aprobados",
+                            "porcentaje_aprobados": st.column_config.ProgressColumn(
+                                "% Aprobados",
+                                min_value=0,
+                                max_value=100,
+                                format="%.1f%%",
+                                color="#6EE7B7",
+                            ),
                         },
                 )
 else:
@@ -120,7 +127,15 @@ if df_filtrado.height>0:
         ax.set_title("Nota Media por Asignatura", color="#F3E8FF")
         ax.set_ylabel("Nota Media")
         ax.set_ylim(0, 10.8)  # Escala fija de 0 a 10 para notas
-        
+        ax.axhline(
+            y=5,
+            color="#FCD34D",      # Amarillo Ámbar, originalmente iba a ser rojo coral pero me baila la vista. 
+            linestyle="--",       # Línea discontinua ("--") para que no tape los datos
+            linewidth=1.5,
+            label="Aprobado (5.0)"
+        )
+        ax.legend(facecolor="#231B36", labelcolor="#F3E8FF")
+
 
     # Opción 2: Líneas (Evolución de las evaluaciones)
     elif opcion_grafico=="Evolución de las evaluaciones":
@@ -134,6 +149,24 @@ if df_filtrado.height>0:
             color= "#6EE7B7",
             linewidth=2.5,
         )
+        ax.plot(
+            evals_texto,
+            resumen_eval["media_suspensos"],
+            marker="s",          # Cuadraditos ("s" = square) para distinguirla bien
+            color="#FCD34D",     # Ámbar pastel suave
+            linewidth=2,
+            linestyle="-.",      # Línea punto-raya 
+            label="Media Suspensos (< 5)",
+        )
+        ax.axhline(
+            y=5,
+            color="#E9D5FF",      # Lavanda suave 
+            linestyle="--",
+            linewidth=1.5,
+            alpha=0.8,
+            label="Aprobado (5.0)",
+        )
+        ax.legend(facecolor="#231B36", labelcolor="#F3E8FF")
         ax.set_title("Evolución de la Nota Media por Evaluación", color="#F3E8FF")
         ax.set_xlabel("Evaluación")
         ax.set_ylabel("Nota Media")
